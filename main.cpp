@@ -117,8 +117,13 @@ void mergesortedarray(vector<int>& nums1,int m,vector<int>& nums2,int n){
     return;
 }
 // reverse string ---||-----
-void reversestring(vector<char>& s){
-int i=0;int j=strlen()-1;
+void reversestring(string& s){
+int i=0;int j=s.length()-1;
+while(i<j){
+    swap(s[i],s[j]);
+    i++;j--;
+}
+return;
 }
 int main(){
     string s ="hello";
