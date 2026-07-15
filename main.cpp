@@ -92,8 +92,32 @@ void dnf(vector<int>& arr){
     }
     return;
 }
+void mergesortedarray(vector<int>& nums1,int m,vector<int>& nums2,int n){
+    int end=(m+n)-1;
+    int e1=m-1,e2=n-1;
+    while(e1>=0&&e2>=0){
+        if(nums1[e1]<=nums2[e2]){
+            nums1[end]=nums2[e2];
+            end--;
+            e2--;
+        }else{
+            nums1[end]=nums1[e1];
+            end--;e1--;
+        }
+    }
+    while (e2 >= 0) {
+    nums1[end] = nums2[e2];
+    end--;
+    e2--;
+}
+    for (int i=0;i<=(m+n)-1;i++){
+        cout<<nums1[i]<<" ";
+    }
+    return;
+}
 int main(){
-    vector<int>arr={2,0,2,1,1,0,2,0,0};
-    dnf(arr);
+    vector<int>nums1={1,2,3,0,0,0};
+    vector<int>nums2={2,5,6};
+    mergesortedarray(nums1,3,nums2,3);
     return 0;
 }
