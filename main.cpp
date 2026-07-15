@@ -115,9 +115,25 @@ void mergesortedarray(vector<int>& nums1,int m,vector<int>& nums2,int n){
     }
     return;
 }
+// next permutation ----||----
+void nextpermutation(vector<int>& arr){
+    int n=arr.size()-1;
+    int pivot=-1;
+    for(int i=n-1;i>=0;i--){
+        if(arr[i]<arr[i+1]){
+            swap(arr[i],arr[n]);
+            pivot=i+1;
+            break;
+        }
+    }
+    reverse(arr.begin()+pivot,arr.end());
+    for(int i=0;i<=n;i++){
+        cout<<arr[i]<<" ";
+    }
+    return;
+}
 int main(){
-    vector<int>nums1={1,2,3,0,0,0};
-    vector<int>nums2={2,5,6};
-    mergesortedarray(nums1,3,nums2,3);
+    vector<int>arr={1,5,1};
+    nextpermutation(arr);
     return 0;
 }
