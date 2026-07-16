@@ -2,6 +2,7 @@
 #include<vector>
 #include<algorithm>
 #include<string>
+#include<cctype>
 using namespace std;
 
 // book allocation-----
@@ -126,14 +127,55 @@ while(i<j){
 return;
 }
 //is a valid palindrome-----||-----
-bool isvalidpalindrome(string& s){
-    string x=s;
-    reverse(s.begin(),s.end());
-    if(s==x) return true;
-    else return false;
+bool isvalidpalindrome(const string& s){
+    if(s.empty()) return true;
+   int i=0,j=s.size()-1;
+   while(i<j){
+    if(s[i]!=s[j]) return false;
+    i++;j--;
+   }
+   return true;
+}
+bool validpalindrome2(const string& s){
+    string x="";
+for(int i=0;i<s.size();i++){
+    if(s[i]>='0'&&s[i]<='9'){
+        x+=s[i];
+    }
+    else if(s[i]>='A'&&s[i]<='Z'){
+        x+=(s[i]-'A')+'a';
+    }
+    else if(s[i]>='a'&&s[i]<='z'){
+        x+=s[i];
+    }
+}
+ int i=0,j=x.size()-1;
+ while(i<j){
+    if(x[i]!=x[j]) return false;
+    i++;j--;
+ }
+ return true;
+}
+bool isvalidpalindrome2(const string& s){
+    if(s.empty()) return true;
+    int i=0,j=s.size()-1;
+    while(i<=j){
+        if(!isalnum(s[i])){
+            i++;
+            continue;
+        }
+        if(!isalnum(s[j])){
+             j--;
+            continue;
+        }
+
+        if(tolower(s[i])!=tolower(s[j])) return false;
+        i++;j--;
+    }
+    return true;
 }
 int main(){
-    string s ="madam";
-    cout<<isvalidpalindrome(s)<<endl;
+    string s ="Ac3?e3c&a";
+    cout<<isvalidpalindrome2(s)<<endl;
     return 0;
 }
