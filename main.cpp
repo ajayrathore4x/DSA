@@ -174,8 +174,16 @@ bool isvalidpalindrome2(const string& s){
     }
     return true;
 }
+string removeoccurance(string s,string part){
+    while(1){
+        size_t pos=s.find(part);
+        if(pos==string::npos) return s;
+            s.erase(pos,part.length());
+    }
+}
 int main(){
-    string s ="Ac3?e3c&a";
-    cout<<isvalidpalindrome2(s)<<endl;
+    string s ="daabcbaabcbc";
+    string part="abc";
+    cout<<removeoccurance(s,part)<<endl;
     return 0;
 }
