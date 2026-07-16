@@ -125,8 +125,15 @@ while(i<j){
 }
 return;
 }
+//is a valid palindrome-----||-----
+bool isvalidpalindrome(string& s){
+    string x=s;
+    reverse(s.begin(),s.end());
+    if(s==x) return true;
+    else return false;
+}
 int main(){
-    string s ="hello";
-
+    string s ="madam";
+    cout<<isvalidpalindrome(s)<<endl;
     return 0;
 }
