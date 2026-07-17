@@ -209,8 +209,24 @@ int compressstring(vector<char>& chars){
     chars.resize(idx);
     return idx;
 }
+int primecount(int n){
+    vector<bool>isprime(n,true);
+        isprime[0] = isprime[1] = false;
+    int count=0;
+    for(int i=2;i<n;i++){
+        if(isprime[i]){
+            count++;
+        if ((long long)i * i < n) {
+        for(int j=i*2;j<n;j=j+i){
+            isprime[j]=false;
+        }
+       }
+     }
+    }
+    return count;
+}
 int main(){
     vector<char>chars={'a','a','b','b','c','c','c'};
-    cout<<compressstring(chars)<<endl;
+    cout<<primecount(50)<<endl;
     return 0;
 }
