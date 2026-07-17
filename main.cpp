@@ -3,6 +3,7 @@
 #include<algorithm>
 #include<string>
 #include<cctype>
+#include<cmath>
 using namespace std;
 
 // book allocation-----
@@ -224,6 +225,16 @@ int primecount(int n){
      }
     }
     return count;
+}
+bool isarmstrong(int n){
+    int x=0;
+    int original=n;
+    while(n>0){
+        int rem=n%10;
+        x+=rem*rem*rem;
+        n=n/10;
+    }
+    return x==original;
 }
 int main(){
     vector<char>chars={'a','a','b','b','c','c','c'};
