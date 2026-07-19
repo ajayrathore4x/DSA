@@ -236,8 +236,10 @@ bool isarmstrong(int n){
     }
     return x==original;
 }
+int gcdofaddneven(int n){
+    return n;
+}
 int main(){
-    vector<char>chars={'a','a','b','b','c','c','c'};
-    cout<<primecount(50)<<endl;
+    cout<<findgcd(4)<<endl;
     return 0;
 }
