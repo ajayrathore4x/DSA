@@ -263,7 +263,18 @@ bool ispalindrome(int n){
     if(rev==original)return true;
     else return false;
 }
+pair<int,int> linearsearch2darray( int arr[][3],int n,int target){
+    for(int i=0;i<n;i++){
+        for (int j=0;j<3;j++){
+            if(arr[i][j]==target) return {i,j};
+        }
+    }
+    return {-1,-1};
+}
 int main(){
-    cout<<ispalindrome(1231)<<endl;
+    int arr[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+    int target=6;
+    pair<int,int>vec=linearsearch2darray(arr, 4,target);
+    cout<<vec.first<<" "<<vec.second<<endl;
     return 0;
 }
