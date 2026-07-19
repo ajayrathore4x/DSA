@@ -243,12 +243,27 @@ int reversenums(int n){
     int ans=0;
     while(n!=0){
         int rem=n%10;
+        if(ans>INT_MAX/10||ans<INT_MIN/10){
+            return 0;
+        }
         ans=(ans*10)+rem;
         n=n/10;
     }
     return ans;
 }
+bool ispalindrome(int n){
+    if(n<0) return false;
+    int original=n;
+    int rev=0;
+        while(n!=0){
+        int rem=n%10;
+        rev=(rev*10)+rem;
+        n=n/10;
+    }
+    if(rev==original)return true;
+    else return false;
+}
 int main(){
-    cout<<reversenums(4537)<<endl;
+    cout<<ispalindrome(1231)<<endl;
     return 0;
 }
