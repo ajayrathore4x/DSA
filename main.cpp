@@ -320,11 +320,15 @@ void movezeros2end(vector<int>& arr){
     }
     return;
 }
+int missingnumber(vector<int>& arr){
+    for(int i=0;i<arr.size();i++){
+        if(arr[i]!=i+1){
+        return i+1;}
+    }
+    return 0;
+}
 int main(){
-    vector<int>arr={1,0,0,2,3,0,4,0,5};
-    movezeros2end(arr);
-     for(int val:arr){
-        cout<<val<<" ";
-     }
+    vector<int>arr={1,2,3,4,6,7,8};
+   cout<<missingnumber(arr)<<endl;
     return 0;
 }
