@@ -286,15 +286,13 @@ vector<int> removeduplicate(vector<int>& arr){
     return arr;
 }
 int removeduplicate2(vector<int>& arr){
- int i=0;
-int j=i+1;
+    if (arr.empty()) return 0;
 int idx=1;
-while(j<arr.size()){
-    if(arr[i]!=arr[j]){
-        arr[idx]=arr[j];
-        idx++;  
-}
-i++;j++;
+for(int i=1;i<arr.size();i++){
+if(arr[i]!=arr[idx-1]){     
+        arr[idx]=arr[i];
+         idx++;
+    }
 }
 arr.resize(idx);
 return idx;
