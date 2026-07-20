@@ -297,8 +297,23 @@ if(arr[i]!=arr[idx-1]){
 arr.resize(idx);
 return idx;
 }
+void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        k %= n;
+
+        vector<int> ans(n);
+
+        for (int i = 0; i < n; i++) {
+            ans[(i + k) % n] = nums[i];
+        }
+
+        nums = ans;
+    }
 int main(){
-    vector<int>arr={1,2,2,3,4,5,5,6};
-   cout<<removeduplicate2(arr)<<endl;
+    vector<int>arr={1,2,3,4,5,6};
+     rotate(arr,2);
+     for(int val:arr){
+        cout<<val<<" ";
+     }
     return 0;
 }
