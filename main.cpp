@@ -309,9 +309,20 @@ void rotate(vector<int>& nums, int k) {
 
         nums = ans;
     }
+void movezeros2end(vector<int>& arr){
+    int i=0;int j=0;
+    while(i<arr.size()){
+        if(arr[i]!=0){
+            swap(arr[i],arr[j]);
+            j++;
+        }
+        i++;
+    }
+    return;
+}
 int main(){
-    vector<int>arr={1,2,3,4,5,6};
-     rotate(arr,2);
+    vector<int>arr={1,0,0,2,3,0,4,0,5};
+    movezeros2end(arr);
      for(int val:arr){
         cout<<val<<" ";
      }
