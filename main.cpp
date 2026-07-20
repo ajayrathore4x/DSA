@@ -271,10 +271,26 @@ pair<int,int> linearsearch2darray( int arr[][3],int n,int target){
     }
     return {-1,-1};
 }
+vector<int> removeduplicate(vector<int>& arr){
+    int idx=0;
+    for(int i=0;i<arr.size();i++){
+        bool found=false;
+        for(int j=i+1;j<arr.size();j++){
+            if(arr[i]==arr[j]) {
+                found=true;
+                break;
+            }
+        }if(!found){ arr[idx]=arr[i];idx++;}
+    }
+    arr.resize(idx);
+    return arr;
+}
 int main(){
-    int arr[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
-    int target=6;
-    pair<int,int>vec=linearsearch2darray(arr, 4,target);
-    cout<<vec.first<<" "<<vec.second<<endl;
+    vector<int>arr={1,2,2,3,4,5,5,6};
+    removeduplicate(arr);
+
+    for(int val:arr){
+        cout<<val<<" ";
+    }
     return 0;
 }
