@@ -285,12 +285,22 @@ vector<int> removeduplicate(vector<int>& arr){
     arr.resize(idx);
     return arr;
 }
+int removeduplicate2(vector<int>& arr){
+ int i=0;
+int j=i+1;
+int idx=1;
+while(j<arr.size()){
+    if(arr[i]!=arr[j]){
+        arr[idx]=arr[j];
+        idx++;  
+}
+i++;j++;
+}
+arr.resize(idx);
+return idx;
+}
 int main(){
     vector<int>arr={1,2,2,3,4,5,5,6};
-    removeduplicate(arr);
-
-    for(int val:arr){
-        cout<<val<<" ";
-    }
+   cout<<removeduplicate2(arr)<<endl;
     return 0;
 }
