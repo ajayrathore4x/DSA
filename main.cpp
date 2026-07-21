@@ -339,6 +339,25 @@ vector<int> findDuplicate(vector<int>& arr) {
 
     return ans;
 }
+vector<int> concat(vector<int>& a, vector<int>& b) {
+    vector<int> result = a;
+    result.insert(result.end(), b.begin(), b.end());
+    return result;
+}
+vector<int> uniofarr(vector<int>& arr1,vector<int>& arr2){
+    vector<int>ans=concat(arr1,arr2);
+    sort(ans.begin(),ans.end());
+    int idx=1;
+    for(int i=1;i<ans.size();i++){
+        if(ans[i]!=ans[idx-1]){
+            ans[idx]=ans[i];
+            idx++;
+        }
+    }
+    ans.resize(idx);
+    return ans;
+
+}
 int main(){
     vector<int>arr={1,2,2,2,3,4,4,5};
 
