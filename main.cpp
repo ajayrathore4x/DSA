@@ -358,6 +358,23 @@ vector<int> uniofarr(vector<int>& arr1,vector<int>& arr2){
     return ans;
 
 }
+vector<int> insertionofarray(vector<int>& arr1,vector<int>& arr2){
+    int i=0,j=0;
+    vector<int>ans;
+    while(i<arr1.size() && j<arr2.size()){
+        if(arr1[i]==arr2[j]){
+            ans.push_back(arr1[i]);
+            i++;j++;
+        }
+        else if(arr1[i]<arr2[j]){
+            i++;
+        }
+        else{
+            j++;
+        }
+    }
+    return ans;
+}
 int main(){
     vector<int>arr={1,2,2,2,3,4,4,5};
 
