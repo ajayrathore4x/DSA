@@ -327,8 +327,20 @@ int missingnumber(vector<int>& arr){
     }
     return 0;
 }
+vector<int> findDuplicate(vector<int>& arr) {
+    vector<int> ans;
+
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] == arr[i - 1]) {
+            if (ans.empty() || ans.back() != arr[i])
+                ans.push_back(arr[i]);
+        }
+    }
+
+    return ans;
+}
 int main(){
-    vector<int>arr={1,2,3,4,6,7,8};
-   cout<<missingnumber(arr)<<endl;
+    vector<int>arr={1,2,2,2,3,4,4,5};
+
     return 0;
 }
