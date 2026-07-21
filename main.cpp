@@ -363,7 +363,9 @@ vector<int> insertionofarray(vector<int>& arr1,vector<int>& arr2){
     vector<int>ans;
     while(i<arr1.size() && j<arr2.size()){
         if(arr1[i]==arr2[j]){
-            ans.push_back(arr1[i]);
+            if (ans.empty() || ans.back() != arr1[i]) {
+               ans.push_back(arr1[i]);
+            }
             i++;j++;
         }
         else if(arr1[i]<arr2[j]){
@@ -371,6 +373,15 @@ vector<int> insertionofarray(vector<int>& arr1,vector<int>& arr2){
         }
         else{
             j++;
+        }
+    }
+    return ans;
+}
+vector<int> findleaders(vector<int>& arr){
+    vector<int>ans;
+    for(int i=arr.size()-1;i>=0;i--){
+        if(ans.empty()||arr[i]>ans.back()){
+            ans.push_back(arr[i]);
         }
     }
     return ans;
