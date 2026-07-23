@@ -384,10 +384,32 @@ vector<int> findleaders(vector<int>& arr){
             ans.push_back(arr[i]);
         }
     }
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
+vector<int> rearrangeposnndneg(vector<int>& arr){
+    if(arr.empty()) return {};
+    if(arr.size()==1) return arr;
+    int i=0;
+    int j=1;
+    vector<int>ans(arr.size());
+    for(int k=0;k<arr.size();k++){
+        if(arr[k]>=0){
+            ans[i]=arr[k];
+            i=i+2;
+        }
+        else{
+            ans[j]=arr[k];
+            j=j+2;
+        }
+    }
     return ans;
 }
 int main(){
-    vector<int>arr={1,2,2,2,3,4,4,5};
-
+    vector<int>arr={3,2,-1,0,-3,-4,5};
+    vector<int>ans=rearrangeposnndneg(arr);
+    for(int val:ans){
+        cout<<val<<" ";
+    }
     return 0;
 }
